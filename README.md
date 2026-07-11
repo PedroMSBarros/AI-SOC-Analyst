@@ -121,11 +121,3 @@ corretos e validados), a resolução de incidentes de infraestrutura
 (RAM, rede), o teste de ataque real via Kali/Metasploit e a descoberta
 do gap de visibilidade no ruleset do Wazuh — veja
 [PROJECT2_PHASE1.md](PROJECT2_PHASE1.md).
-
-## Próximos passos
-
-- Investigar a causa raiz de uma regra customizada do Wazuh que não
-  dispara como esperado (documentado como achado em aberto)
-- Deploy como serviço systemd para rodar continuamente sem sessão SSH ativa
-- Explorar outros tipos de ataque (movimento lateral, persistência) para
-  ampliar a cobertura de cenários testados
