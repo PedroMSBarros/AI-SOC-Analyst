@@ -108,7 +108,7 @@ streamlit run dashboard.py --server.port 8501
 Métricas gerais (volume, custo real, distribuição de veredictos) e
 tabela filtrável por veredito/estágio/agente.
 
-![Tabela de detalhamento filtrável](windows-defender-ameaca-detectada.png)
+![Tabela de detalhamento filtrável](dashboard-tabela-detalhamento.png)
 
 Notificação automática no Discord para veredictos `malicioso`/`alta` confiança:
 
