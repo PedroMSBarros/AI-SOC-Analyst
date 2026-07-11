@@ -129,8 +129,3 @@ corretos e validados), a resolução de incidentes de infraestrutura
 (RAM, rede), o teste de ataque real via Kali/Metasploit e a descoberta
 do gap de visibilidade no ruleset do Wazuh — veja
 [PROJECT2_PHASE1.md](PROJECT2_PHASE1.md).
-
-corretos e validados), a resolução de incidentes de infraestrutura
-(RAM, rede), o teste de ataque real via Kali/Metasploit e a descoberta
-do gap de visibilidade no ruleset do Wazuh — veja
-[PROJECT2_PHASE1.md](PROJECT2_PHASE1.md).
