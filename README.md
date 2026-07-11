@@ -49,11 +49,11 @@ streamlit run dashboard.py --server.port 8501
 Métricas gerais (volume, custo real, distribuição de veredictos) e
 tabela filtrável por veredito/estágio/agente.
 
-![Tabela de detalhamento filtrável](screenshots/dashboard-tabela-detalhamento.png)
+![Tabela de detalhamento filtrável](dashboard-tabela-detalhamento.png)
 
 Notificação automática no Discord para veredictos `malicioso`/`alta` confiança:
 
-![Notificação no Discord](screenshots/discord-notificacao.png)
+![Notificação no Discord](discord-notificacao.png)
 
 ## Arquivos gerados
 
