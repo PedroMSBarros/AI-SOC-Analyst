@@ -1,0 +1,6 @@
+state.json
+investigations.json
+__pycache__/
+*.pyc
+.env
+LINKEDIN_POST_DRAFT.md
