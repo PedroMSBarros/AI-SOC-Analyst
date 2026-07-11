@@ -177,6 +177,8 @@ sem qualquer intervenção manual, confirmando que a arquitetura funciona
 de ponta a ponta em tempo real, não apenas em reprocessamento de dados
 históricos.
 
+![Terminal com detecção em tempo real e execução do comando codificado no host Windows](screenshots/terminal-deteccao-tempo-real.png)
+
 **Resultado:**
 
 ```
@@ -192,6 +194,8 @@ independentemente do conteúdo -- validando em produção o ajuste de
 prompt aplicado anteriormente. O modelo também levantou, sem ser
 solicitado, a hipótese de que o evento poderia ser um teste de
 red/purple team documentado -- hipótese correta.
+
+![Saída JSON da investigação do Sonnet: resumo e recomendação](screenshots/investigacao-json-sonnet.png)
 
 O mesmo teste, executado uma segunda vez ~12 minutos depois (mesmo
 `rule_id` + mesmo `agent.name`, dentro da janela de deduplicação de 30
@@ -234,6 +238,8 @@ Severidade: Grave
 Ação: Colocar em Quarentena
 Processo: powershell.exe (via Invoke-WebRequest)
 ```
+
+![Windows Defender bloqueando o payload gerado pelo msfvenom](screenshots/windows-defender-ameaca-detectada.png)
 
 ### Gap de visibilidade descoberto no Wazuh
 
