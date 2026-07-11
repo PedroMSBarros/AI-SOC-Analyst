@@ -343,14 +343,3 @@ real para IA aplicada a triagem de SOC: o roteamento por severidade
 deduplicação (evitar reinvestigar o mesmo padrão repetido) são,
 juntos, responsáveis pela maior parte dessa eficiência de custo --
 mais do que a escolha específica de modelo.
-
-### Próximos passos (Fase 3)
-
-- Publicar o repositório no GitHub com README consolidado, junto da
-  divulgação no LinkedIn
-- Avaliar custo de token por veredito em escala (volume diário real,
-  fora do ambiente controlado de lab)
-- Considerar cofre de segredos em vez de variáveis de ambiente em texto
-  plano, caso o projeto evolua além do ambiente de lab
-- Investigar causa raiz da interface `enp0s8` não subir automaticamente
-  após reboot (atualmente mitigado via script manual)
