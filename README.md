@@ -1,60 +1,3 @@
-# AI SOC Analyst Assistant
-
-Assistente de triagem e investigação de alertas de segurança que consome
-alertas em tempo real do Wazuh (SIEM open-source) e usa um roteamento em
-duas camadas de modelos Claude — **Haiku 4.5** para triagem rápida e
-**Sonnet 5** para investigação profunda — para automatizar boa parte do
-trabalho de um analista SOC N1/N2.
-
-Construído como parte do meu portfólio de cibersegurança, sobre a
-infraestrutura do [Mini SOC Lab](https://github.com/PedroMSBarros/Mini-Soc-Lab)
-(Project 1).
-
-## Destaques
-
-- **Roteamento por severidade**: ~68% dos alertas (ruído estatístico,
-  level ≤6) nunca chegam a chamar um LLM — economia de custo desde a
-  origem
-- **Deduplicação**: alertas repetidos do mesmo tipo/host dentro de uma
-  janela de 30 min reaproveitam o veredito anterior — reduziu o custo de
-  operação **pela metade** em uso real
-- **Custo real em escala**: um SOC processando 10.000 alertas brutos/dia
-  custaria **menos de US$ 10/mês** em tokens de IA (ver
-  [análise completa](PROJECT2_PHASE1.md#avaliação-de-custo-de-tokens-em-escala))
-- **Validado contra ataques reais**: prompt calibrado e testado contra os
-  3 cenários de ataque documentados no Project 1, mais um teste de
-  Reverse Shell ao vivo via Metasploit que revelou um gap real de
-  visibilidade no ruleset padrão do Wazuh (documentado em detalhe)
-- **Dashboard com custo real**: métricas, veredictos e uso de tokens
-  calculados a partir do `response.usage` de cada chamada de API — não é
-  estimativa
-
-## Arquitetura
-
-```
-Wazuh Indexer (9200)
-        │
-        ▼
-   rule.level <= 6  ───────────────────────► Ignorado (ruído estatístico)
-        │
-   rule.level 7-8 ──► Claude Haiku 4.5 (triagem rápida)
-        │                     │
-        │              escalate=false ─────► Registrado como benigno
-        │                     │
-        │              escalate=true
-        │                     ▼
-   rule.level >= 9 ──► Claude Sonnet 5 (investigação profunda)
-                               │
-                               ▼
-                Veredito + confiança + recomendação
-                               │
-                               ▼
-                  malicioso + confiança alta?
-                               │
-                               ▼
-                   🔔 Notificação (Slack/Discord)
-```
-
 Alertas com o mesmo `rule_id` + `agent.name` dentro de 30 minutos
 reaproveitam o veredito em cache em vez de reinvestigar (deduplicação).
 
@@ -105,6 +48,12 @@ streamlit run dashboard.py --server.port 8501
 
 Métricas gerais (volume, custo real, distribuição de veredictos) e
 tabela filtrável por veredito/estágio/agente.
+
+![Tabela de detalhamento filtrável](screenshots/dashboard-tabela-detalhamento.png)
+
+Notificação automática no Discord para veredictos `malicioso`/`alta` confiança:
+
+![Notificação no Discord](screenshots/discord-notificacao.png)
 
 ## Arquivos gerados
 
